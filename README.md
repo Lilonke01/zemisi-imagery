@@ -71,3 +71,19 @@ supabase/schema.sql        Tables, seed, bucket, RLS and atomic reorder RPCs
 ```
 
 Security behavior should be checked against your configured Supabase project: anonymous published reads and message inserts succeed; anonymous draft/message reads and writes fail; a nonallowlisted authenticated user is denied studio access and writes; an allowlisted user can upload/manage content; unpublishing denies the original storage download. Use a separate staging project for destructive checks.
+## Story albums
+
+For an existing installation, run `supabase/stories.sql` in Supabase SQL Editor once.
+For a new installation, run `supabase/schema.sql` first, then `supabase/stories.sql`.
+
+1. Open **Admin → Photos** to upload and publish the pictures.
+2. Open **Admin → Stories → Create story**.
+3. Add a title and story caption, choose a category, and select pictures from your collection.
+4. Use the arrows in **Pictures in this story** to set the sequence. The first picture is the cover.
+5. Tick **Publish this story on the home page**, then **Save story**.
+
+Visitors can open each story and swipe through its pictures, use previous/next buttons,
+or use arrow keys. The story title and caption remain visible as they browse.
+Escape closes the album. Only published stories and published photos are public.
+Deleting a story keeps its original photos. A photo can belong to multiple stories.
+Until the first story is published, the home page keeps showing existing featured photos.
