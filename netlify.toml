@@ -4,3 +4,8 @@ publish = ".next"
 
 [build.environment]
 NODE_VERSION = "22"
+
+# Public browser connection settings. Never add a service-role or secret key here.
+NEXT_PUBLIC_SUPABASE_URL = "https://cfecnwmhqxctsljdorzv.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "sb_publishable_dstoMx46iMwMLt2VUBn2ng_bLZuxvOi"
+NEXT_PUBLIC_SITE_URL = "https://precious-kashata-80308d.netlify.app"
