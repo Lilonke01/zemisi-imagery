@@ -1,0 +1,3 @@
+import type { NextConfig } from 'next';
+const config: NextConfig = { images: { minimumCacheTTL: 1, remotePatterns: [{ protocol: 'https', hostname: '**.supabase.co' }, { protocol: 'https', hostname: 'images.unsplash.com' }] } };
+export default config;

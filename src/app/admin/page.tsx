@@ -1,0 +1,4 @@
+import { requireAdmin } from '@/lib/admin';
+
+export default async function Dashboard(){const db=await requireAdmin();const counts=await Promise.all([db.from('photos').select('id',{count:'exact',head:true}),db.from('categories').select('id',{count:'exact',head:true}),db.from('messages').select('id',{count:'exact',head:true}).eq('is_read',false)]);if(counts.some(c=>c.error))throw new Error('Unable to load dashboard');return <><p className="eyebrow">YOUR CREATIVE SPACE</p><h1>The studio.</h1><p>Manage the stories you share with the world.</p><div className="stats">{['Photos','Categories','Unread messages'].map((name,i)=><a key={name} href={['/admin/photos','/admin/categories','/admin/messages'][i]}><span>{counts[i].count??0}</span>{name}</a>)}</div><a className="button" href="/admin/photos">Upload your next story ↗</a></>;}
+

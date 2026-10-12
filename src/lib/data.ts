@@ -1,0 +1,4 @@
+import { serverDB } from './supabase/server';
+import { defaults } from './settings';
+import type { Settings, Photo, Category } from './types';
+export async function publicData() { if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return { settings: defaults, photos: [] as Photo[], categories: [] as Category[], configured: false }; const db = await serverDB(); const [s,p,c] = await Promise.all([db.from('site_settings').select('*').eq('id',1).single(),db.from('photos').select('*').eq('is_published',true).order('display_order'),db.from('categories').select('*').order('display_order')]); if(s.error || p.error || c.error) throw new Error('Unable to load portfolio. Check the Supabase schema and connection.'); return {settings:s.data as Settings,photos:p.data as Photo[],categories:c.data as Category[],configured:true}; }

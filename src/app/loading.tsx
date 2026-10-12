@@ -1,0 +1,1 @@
+export default function Loading(){return <div className="section" aria-label="Loading portfolio" role="status"><div className="skeleton" style={{height:80,width:'60%',marginBottom:40}}/><div className="photo-grid">{[1,2,3].map(i=><div className="skeleton" key={i} style={{height:400}}/>)}</div></div>;}

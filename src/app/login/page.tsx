@@ -1,0 +1,7 @@
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import { publicConfig } from '@/lib/supabase/config';
+import { browserDB } from '@/lib/supabase/client';
+export default function Login(){const [error,setError]=useState('');const [busy,setBusy]=useState(false);return <main className="login"><Link className="wordmark" href="/">Zemisi Imagery</Link><p className="eyebrow">THE STUDIO</p><h1>Welcome back.</h1><p>Sign in to manage your imagery and enquiries.</p><form onSubmit={async e=>{e.preventDefault();setBusy(true);setError('');if(!publicConfig().url){setError('Configure Supabase in .env.local to enable studio login.');setBusy(false);return;}const f=new FormData(e.currentTarget);const db=browserDB();const {error}=await db.auth.signInWithPassword({email:String(f.get('email')),password:String(f.get('password'))});if(error){setError(error.message);setBusy(false);return;}const {data:allowed}=await db.rpc('is_admin');if(!allowed){await db.auth.signOut();setError('This account does not have studio access.');setBusy(false);return;}window.location.assign('/admin');}}><label>Email<input type="email" name="email" required autoComplete="username"/></label><label>Password<input type="password" name="password" required autoComplete="current-password"/></label><button className="button" disabled={busy}>{busy?'Signing in…':'Sign in ↗'}</button><p role="alert">{error}</p></form><Link href="/">← Back to portfolio</Link></main>;}
+

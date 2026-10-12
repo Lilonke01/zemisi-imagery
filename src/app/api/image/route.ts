@@ -1,0 +1,3 @@
+import { createClient } from '@supabase/supabase-js';
+// Private bucket: anonymous download succeeds only for a published photo via Storage RLS.
+export async function GET(request:Request){const path=new URL(request.url).searchParams.get('path');if(!path||!process.env.NEXT_PUBLIC_SUPABASE_URL)return new Response('Not found',{status:404});const db=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,{auth:{persistSession:false}});const {data,error}=await db.storage.from('portfolio').download(path);if(error||!data)return new Response('Not found',{status:404});return new Response(data,{headers:{'Content-Type':data.type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});}

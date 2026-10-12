@@ -1,0 +1,4 @@
+export type Category = { id: string; name: string; slug: string; display_order: number };
+export type Photo = { id: string; title: string; caption: string; alt_text: string; category_id: string | null; image_url: string; storage_path: string; is_featured: boolean; is_published: boolean; display_order: number; created_at: string };
+export type Message = { id: string; name: string; email: string; message: string; is_read: boolean; created_at: string };
+export type Settings = { id: number; business_name: string; tagline: string; about_text: string; whatsapp_number: string; whatsapp_display: string; default_whatsapp_message: string; email: string; phone: string; address: string; business_hours: string; instagram_url: string; facebook_url: string; hero_image: string; hero_alt: string; packages: { name: string; description: string; price: string }[]; testimonials: { quote: string; name: string }[] };

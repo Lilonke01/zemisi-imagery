@@ -1,0 +1,2 @@
+'use client';
+export default function ErrorPage({reset}:{reset:()=>void}){return <div className="section"><h1>A brief pause.</h1><p>We couldn’t load the page. Please try again.</p><button className="button" onClick={reset}>Try again</button></div>;}

@@ -1,0 +1,6 @@
+import { publicData } from '@/lib/data';
+import { whatsapp } from '@/lib/settings';
+import { ContactForm } from '@/components/contact-form';
+export const metadata={title:'Contact & Book',description:'Start your photography story with Zemisi Imagery. Contact us or book directly on WhatsApp.'};
+export default async function Contact(){const {settings:s}=await publicData();return <section className="section"><p className="eyebrow">YOUR NEXT CHAPTER</p><h1>Let’s create<br/><em>something beautiful.</em></h1><div className="contact-grid"><div><p>Have a date in mind, a story to tell, or an idea to explore? We’d love to hear it.</p><a className="button" href={whatsapp(s)} target="_blank" rel="noreferrer">WhatsApp · {s.whatsapp_display} ↗</a><dl>{s.phone&&<><dt>PHONE</dt><dd><a href={`tel:${s.phone.replace(/\s/g,'')}`}>{s.phone}</a></dd></>}{s.email&&<><dt>EMAIL</dt><dd><a href={`mailto:${s.email}`}>{s.email}</a></dd></>}{s.address&&<><dt>FIND US</dt><dd>{s.address}</dd></>}<dt>STUDIO HOURS</dt><dd>{s.business_hours}</dd></dl>{s.address&&<iframe title="Zemisi Imagery location" loading="lazy" referrerPolicy="no-referrer-when-downgrade" src={`https://maps.google.com/maps?q=${encodeURIComponent(s.address)}&output=embed`}/>}</div><ContactForm/></div></section>;}
+
