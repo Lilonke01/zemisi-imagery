@@ -1,0 +1,4 @@
+'use client';
+import { Star } from 'lucide-react';
+export function Stars({value,label='Rating'}:{value:number;label?:string}){return <span className="stars" role="img" aria-label={`${label}: ${value} out of 5 stars`}>{[1,2,3,4,5].map(n=><Star key={n} size={19} aria-hidden="true" fill={n<=value?'currentColor':'none'}/>)}</span>;}
+export function StarPicker({value,onChange,label='Your star rating',disabled=false}:{value:number;onChange:(n:number)=>void;label?:string;disabled?:boolean}){return <fieldset className="star-picker" disabled={disabled}><legend>{label}</legend><div>{[1,2,3,4,5].map(n=><label key={n}><input type="radio" name={label} value={n} checked={value===n} onChange={()=>onChange(n)} aria-label={`${n} ${n===1?'star':'stars'}`}/><Star size={28} aria-hidden="true" fill={n<=value?'currentColor':'none'}/></label>)}</div><small>{value?`${value} out of 5 stars`:'Choose 1–5 stars'}</small></fieldset>;}

@@ -87,3 +87,11 @@ or use arrow keys. The story title and caption remain visible as they browse.
 Escape closes the album. Only published stories and published photos are public.
 Deleting a story keeps its original photos. A photo can belong to multiple stories.
 Until the first story is published, the home page keeps showing existing featured photos.
+
+## Client reviews
+Run supabase/reviews.sql in Supabase SQL Editor once to enable the reviews section.
+Clients can submit their name, experience and a 1–5 star rating on the home page or /reviews.
+Submissions stay pending until an admin approves them in Admin → Reviews.
+Admins can publish/hide reviews, delete them, and write a studio reply with an optional
+separate star rating. The average score is calculated from client ratings only.
+Public users cannot publish reviews, change ratings, or forge studio responses.
