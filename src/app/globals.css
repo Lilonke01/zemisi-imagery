@@ -74,7 +74,7 @@
 .portrait-hero .hero-actions svg{width:16px;height:16px;flex-shrink:0}
 .portrait-hero .hero-bottom{position:relative;bottom:auto;left:auto;right:auto;padding:0 20px 26px;gap:12px;font-size:7px;letter-spacing:.8px;flex-wrap:wrap}
 .portrait-hero .hero-bottom>a{display:none}
-.whatsapp-float{bottom:76px}
+.whatsapp-float{bottom:18px;left:18px;right:auto}
 }
 @media(max-width:359px){
 .site-header .brand .wordmark span{display:none}
