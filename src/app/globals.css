@@ -50,3 +50,34 @@
 .stars{display:inline-flex;gap:4px;color:#96681b;flex-shrink:0}.dark .stars,.dark .star-picker{color:#eac175}
 .reviews-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:50px;align-items:start}.review-summary{display:flex;flex-wrap:wrap;align-items:center;gap:15px;margin-bottom:25px}.review-summary strong{font-family:Georgia,serif;font-size:38px;font-weight:400}.review-summary>span:last-child{font-size:12px;color:var(--muted)}.review-card{border:1px solid var(--border);padding:28px;margin-bottom:20px;background:var(--background)}.review-card-head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.review-card h3{font-size:23px;margin:0}.review-card time{font-size:11px;color:var(--muted)}.review-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:18px 0 0}.review-reply{background:var(--panel);padding:20px;border-left:3px solid var(--accent);margin-top:24px}.review-reply .eyebrow{font-size:9px;margin-bottom:10px}.review-form-panel{background:var(--panel);padding:30px;border:1px solid var(--border)}.review-form-panel>p,.review-note{font-size:12px;color:var(--muted)}.star-picker{border:0;padding:0;margin:0 0 20px;color:#96681b;min-width:0}.star-picker legend{color:var(--foreground);font-size:12px;margin-bottom:8px}.star-picker>div{display:flex;gap:8px}.star-picker label{position:relative;display:inline-flex;cursor:pointer;margin:0;padding:6px;border-radius:3px}.star-picker input{position:absolute;opacity:0;width:100%;height:100%;inset:0;cursor:pointer;margin:0}.star-picker label:has(input:focus-visible){outline:3px solid #a37b35;outline-offset:3px}.star-picker small{display:block;color:var(--muted);font-size:11px;margin-top:8px}.admin-review-reply{max-width:700px;background:var(--panel);padding:20px;margin:24px 0}.admin-review-reply p{margin:15px 0 0}
 @media(max-width:800px){.reviews-layout{grid-template-columns:1fr;gap:30px}.review-form-panel,.review-card{padding:22px}}
+
+/* Phone hero: a short photo strip followed by readable content in normal flow. */
+@media(max-width:600px){
+.site-header{height:72px;padding:0 16px;gap:8px}
+.site-header>a{min-width:0;flex:1}
+.site-header .brand{gap:8px}
+.site-header .brand-logo{width:34px}
+.site-header .brand .wordmark{font-size:clamp(18px,5vw,22px);letter-spacing:-.6px}
+.site-header .brand .wordmark span{font-size:5px;letter-spacing:.8px}
+.header-controls{gap:4px;flex-shrink:0}
+.header-controls button{width:40px;height:44px;display:flex;align-items:center;justify-content:center;padding:0}
+.navigation{top:72px}
+.hero.portrait-hero{height:auto;min-height:0;max-height:none;background:#131813}
+.portrait-hero .hero-collage{height:180px;bottom:auto}
+.portrait-hero .hero-shade{inset:0 0 auto;height:190px;background:linear-gradient(0deg,#131813,transparent 55%)}
+.portrait-hero .hero-content{padding:202px 20px 24px;max-width:none}
+.portrait-hero .hero-content .eyebrow{font-size:8px;letter-spacing:1.6px;margin-bottom:14px}
+.portrait-hero h1{font-size:clamp(30px,9.1vw,38px);line-height:1.12;letter-spacing:-.8px;max-width:100%;margin-bottom:18px;overflow-wrap:break-word}
+.portrait-hero .hero-content>p:not(.eyebrow){font-size:14px;line-height:1.6;margin-bottom:22px}
+.portrait-hero .hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.portrait-hero .hero-actions .button{width:100%;min-width:0;min-height:46px;padding:11px 10px;gap:8px;font-size:11px}
+.portrait-hero .hero-actions svg{width:16px;height:16px;flex-shrink:0}
+.portrait-hero .hero-bottom{position:relative;bottom:auto;left:auto;right:auto;padding:0 20px 26px;gap:12px;font-size:7px;letter-spacing:.8px;flex-wrap:wrap}
+.portrait-hero .hero-bottom>a{display:none}
+.whatsapp-float{bottom:76px}
+}
+@media(max-width:359px){
+.site-header .brand .wordmark span{display:none}
+.portrait-hero .hero-actions{grid-template-columns:1fr}
+.portrait-hero .hero-actions .button{justify-content:space-between;padding-inline:16px}
+}
